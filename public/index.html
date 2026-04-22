@@ -380,19 +380,41 @@ function ltab(t) {
     alert('¡Bienvenido a Dimensión Trade, ' + user.first_name + '!');
     console.log(user);
   }
+  function register() {
+    const nombre = document.getElementById('r-name').value;
+    const pass = document.getElementById('r-p').value;
+    const codigo = document.getElementById('r-code').value;
+
+    if(!nombre  !pass  !codigo) {
+        alert("⚠️ Por favor, completa todos los datos y el código enviado por el Bot.");
+        return;
+    }
+
+    // Aquí es donde el sistema verificará si el código DT-XXXX es real
+    console.log("Registrando a:", nombre, "con código:", codigo);
+    alert("¡Datos enviados! Estamos verificando tu código de acceso con el Bot...");
+}
 </script>
 
 
-    <!-- REGISTER -->
     <div class="lform" id="lf-reg">
-      <div class="lgrp"><label>Nombre completo</label><input type="text" id="r-n" placeholder="Tu nombre"></div>
-      <div class="lgrp"><label>Correo electrónico</label><input type="email" id="r-e" placeholder="tu@correo.com"></div>
-      <div class="lgrp"><label>Nombre de usuario</label><input type="text" id="r-u" placeholder="usuario123"></div>
-      <div class="lgrp"><label>Contraseña</label><input type="password" id="r-p" placeholder="Mínimo 6 caracteres"></div>
-      <div class="lgrp"><label>Código de acceso</label><input type="text" id="r-c" placeholder="Código proporcionado por el instructor"></div>
-      <button class="btn-g" onclick="register()">CREAR CUENTA</button>
-      <div class="lmsg" id="r-msg"></div>
+    <div class="lgrp"><label>Nombre Completo</label><input type="text" id="r-name" placeholder="Tu nombre"></div>
+    <div class="lgrp"><label>Contraseña</label><input type="password" id="r-p" placeholder="****"></div>
+    <div class="lgrp"><label>Código de Verificación Única</label><input type="text" id="r-code" placeholder="Pide tu código al Bot"></div>
+    
+    <button class="btn-g" onclick="register()">CREAR CUENTA</button>
+
+    <p style="text-align: center; margin: 15px 0; color: #888; font-size: 0.8rem;">— O REGÍSTRATE RÁPIDO CON —</p>
+    
+    <div style="text-align: center;">
+        <script async src="https://telegram.org/js/telegram-widget.js?22" 
+                data-telegram-login="DSMTrade_bot" 
+                data-size="large" 
+                data-onauth="onTelegramAuth(user)" 
+                data-request-access="write"></script>
     </div>
+    <div class="lmsg" id="r-msg"></div>
+</div>
 
     <div class="lfooter">Material exclusivo · No compartir · Dimensión Trade</div>
   </div>
